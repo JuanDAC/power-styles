@@ -1,0 +1,37 @@
+{
+  "name": "power-styles",
+  "version": "1.0.0",
+  "description": "The power styles provider dynamic style properties for svelte",
+  "files": [
+    "src/index.js"
+  ],
+  "scripts": {
+    "test": "jest"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuanDAC/power-styles.git"
+  },
+  "keywords": [
+    "svelte",
+    "sapper",
+    "css",
+    "style"
+  ],
+  "author": "JuanDAC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JuanDAC/power-styles/issues"
+  },
+  "homepage": "https://github.com/JuanDAC/power-styles#readme",
+  "dependencies": {
+    "uppercamelcase": "^3.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^27.3.1",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^27.3.1"
+  }
+}
