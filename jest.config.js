@@ -1,5 +1,8 @@
-
 module.exports = {
-    testPathIgnorePatterns: ['<rootDir>/test', '<rootDir>/node_modules', ],
-    transform: {'/^.+.(js)$/': '<rootDir>/node_modules/babel-jest', }
-};
+    testEnvironment: 'jsdom',
+    transform: {
+      '^.+\\.svelte$': 'svelte-jester',
+      '^.+\\.js$': 'babel-jest',
+    },
+    moduleFileExtensions: ['js', 'svelte'],
+  }

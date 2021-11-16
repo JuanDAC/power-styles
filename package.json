@@ -6,9 +6,11 @@
     "src/index.js"
   ],
   "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "sirv public --no-clear",
     "test": "jest"
   },
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JuanDAC/power-styles.git"
@@ -26,12 +28,24 @@
   },
   "homepage": "https://github.com/JuanDAC/power-styles#readme",
   "dependencies": {
+    "sirv-cli": "^0.4.4",
     "uppercamelcase": "^3.0.0"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@rollup/plugin-commonjs": "^11.0.0",
+    "@rollup/plugin-node-resolve": "^7.0.0",
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/svelte": "^1.11.2",
     "babel-jest": "^27.3.1",
-    "babel-preset-env": "^1.7.0",
-    "jest": "^27.3.1"
+    "jest": "^27.3.1",
+    "rollup": "^1.20.0",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-livereload": "^1.0.0",
+    "rollup-plugin-svelte": "^5.0.3",
+    "rollup-plugin-terser": "^5.1.2",
+    "svelte": "^3.0.0",
+    "svelte-jester": "^2.1.5"
   }
 }
