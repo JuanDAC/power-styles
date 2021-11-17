@@ -6,9 +6,7 @@
     "src/index.js"
   ],
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "start": "sirv public --no-clear",
+    "lint": "eslint lib scripts tests",
     "test": "jest"
   },
   "repository": {
