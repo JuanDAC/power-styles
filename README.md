@@ -7,7 +7,7 @@
 
 ## Prerequisites
 
-This library requires Svelte 3.x.x:w (version 3 or later).
+This library requires Svelte 3.x.x (version 3 or later).
 [Svelte](https://svelte.dev/) are really easy to install.
 
 

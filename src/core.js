@@ -31,7 +31,7 @@ export const stylePropertyFactory = (property, handlers = false) => {
     if (
       valueIn === false ||
       valueIn === null ||
-      (typeof valueIn === "string" && isInvalidValue(value))
+      (typeof valueIn === "string" && isInvalidValue(valueIn))
     ) {
       return {
         update: (valueOut) => currentAction(node, valueOut)
