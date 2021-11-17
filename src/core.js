@@ -31,6 +31,7 @@ export const stylePropertyFactory = (property, handlers = false) => {
     if (
       valueIn === false ||
       valueIn === null ||
+      valueIn === undefined ||
       (typeof valueIn === "string" && isInvalidValue(valueIn))
     ) {
       return {

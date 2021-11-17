@@ -4,6 +4,8 @@ import uppercamelcase from "uppercamelcase";
 import { paramCase } from "param-case";
 
 
+export const customPropertyFactory = (property) => stylePropertyFactory(property, varAdding);
+
 export const styleActions = Object.fromEntries(
   Object.keys(document.body.style).map((property) => [
     uppercamelcase(property),
