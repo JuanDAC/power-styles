@@ -1,12 +1,9 @@
 {
   "name": "power-styles",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The power styles provider dynamic style properties for svelte",
-  "files": [
-    "src/index.js"
-  ],
+  "main": "index.js",
   "scripts": {
-    "lint": "eslint lib scripts tests",
     "test": "jest"
   },
   "repository": {
@@ -26,7 +23,6 @@
   },
   "homepage": "https://github.com/JuanDAC/power-styles#readme",
   "dependencies": {
-    "sirv-cli": "^0.4.4",
     "uppercamelcase": "^3.0.0"
   },
   "devDependencies": {
