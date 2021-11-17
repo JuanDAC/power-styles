@@ -1,6 +1,6 @@
 {
   "name": "power-styles",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "The power styles provider dynamic style properties for svelte",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/JuanDAC/power-styles#readme",
   "dependencies": {
+    "param-case": "^3.0.4",
     "uppercamelcase": "^3.0.0"
   },
   "devDependencies": {
