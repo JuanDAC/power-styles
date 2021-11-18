@@ -27,7 +27,7 @@ This library requires Svelte 3.x.x (version 3 or later).
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Provide style actions for each css rule. Provide style actions for each css rule. and can be applied to any HTML element by applying svelte's reactivity to css properties.
 
 ## Installation
 
@@ -42,12 +42,12 @@ $ npm install power-styles
 Or if you prefer using Yarn:
 
 ```sh
-$ yarn add --dev myLib
+$ yarn add power-styles
 ```
 
 ## Usage
 
-Supported options and result fields for the `useBasicFetch` hook are listed below.
+Supported options and result fields for the `useBasic` hook are listed below.
 
 ### useBasic
 
@@ -57,29 +57,24 @@ Supported options and result fields for the `useBasicFetch` hook are listed belo
 | --- | --- | --- |
 | FontSize | String | "4em" |
 
-if you what style from props
+If you what style from props
 
 Example:
 
 ```html
 <script>
-	import { FontSize } from "power-styles";
-	export let name, fontSize = "4em";
+	import powerStyles from "power-styles";
+  const {FontSize} = powerStyles;
+	export fontSize = "4em";
 </script>
 
 <main>
 	<p
 		use:FontSize={fontSize}
-	>{name}</p>
+	>
+  <slot/>
+  </p>
 </main>
-
-<style>
-	p {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-weight: 100;
-	}
-</style>
 ```
 
 ## Contributing
