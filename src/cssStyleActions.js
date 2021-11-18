@@ -13,9 +13,9 @@ String.prototype.addPrefixCustom = function() {
 
 export const styleActions = Object.fromEntries(
   Object.keys(document.body.style)
-    .concat(getCustomProperties(":power-styles"))
+    .concat(getCustomProperties("power-styles"))
     .map((property) => [
       uppercamelcase(property.addPrefixCustom()),
-      stylePropertyFactory(paramCase(property), varAdding)
+      stylePropertyFactory(property.startsWith("--") ? property : paramCase(property), varAdding)
     ]) // Object.keys(document.body.style).map(key => [
 ); // Object.fromEntries

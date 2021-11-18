@@ -1,6 +1,6 @@
 {
   "name": "power-styles",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "The power styles provider dynamic style properties for svelte",
   "main": "index.js",
   "scripts": {

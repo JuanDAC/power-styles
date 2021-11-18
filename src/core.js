@@ -3,30 +3,41 @@ export const isValidValue = (value = "") =>
 
 export const isInvalidValue = (value) => !isValidValue(value);
 
-export const updateStyle = (node, property, value) => {
+export const updateStyle = (node, property, value, unit) => {
   if (isValidValue(value)) {
-    node.style.setProperty(property, value);
+    node.style.setProperty(property, `${value}${unit}`);
   }
 };
+
+export const isUnit = (valueIn) => {
+  if (Array.isArray(valueIn)) {
+    return valueIn
+  }
+  return [valueIn, false]
+}
 
 export const getHandler = (handlers) => {
   if (Array.isArray(handlers)) {
     return (valueOut) =>
-      [valueOut, ...(handlers || [])].reduce((valueIn, handler) =>
+      [valueOut, ...(handlers || []), isUnit].reduce((valueIn, handler) =>
         handler(valueIn)
       );
   } else if (handlers instanceof Function) {
-    return handlers;
+    return (valueOut) => isUnit(handlers(valueOut));
   }
 
-  return (valueOut) => valueOut;
+  return (valueOut) => isUnit(valueOut);
 };
 
 export const stylePropertyFactory = (property, handlers = false) => {
   const handler = getHandler(handlers);
+  let unit = '';
 
   const currentAction = (node, valueOut) => {
-    const valueIn = handler(valueOut);
+    const [valueIn, newUnit]= handler(valueOut);
+    if (newUnit) {
+      unit = newUnit;
+    }
 
     if (
       valueIn === false ||
@@ -39,7 +50,7 @@ export const stylePropertyFactory = (property, handlers = false) => {
       };
     }
 
-    updateStyle(node, property, String(valueIn));
+    updateStyle(node, property, String(valueIn), unit);
     return {
       update: (valueOut) => currentAction(node, valueOut)
     };
@@ -47,4 +58,3 @@ export const stylePropertyFactory = (property, handlers = false) => {
 
   return currentAction;
 };
-
