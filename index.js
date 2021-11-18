@@ -1,4 +1,3 @@
-import { styleActions, customPropertyFactory } from "./src/cssStyleActions";
+import { styleActions } from "./src/cssStyleActions";
 
-export const addCustomProperty = customPropertyFactory;
 export default styleActions;
