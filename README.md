@@ -19,7 +19,7 @@ This library requires Svelte 3.x.x (version 3 or later).
   - [Getting Started](#getting-started)
   - [Installation](#installation)
   - [Usage](#usage)
-    - [useBasic](#usebasic)
+    - [Use basic](#use-basic)
   - [Contributing](#contributing)
   - [Versioning](#versioning)
   - [Authors](#authors)
@@ -47,11 +47,7 @@ $ yarn add power-styles
 
 ## Usage
 
-Supported options and result fields for the `useBasic` hook are listed below.
-
-### useBasic
-
-`property from props`
+### property from prop
 
 | Property | Type | Default value | 
 | --- | --- | --- |
@@ -94,7 +90,14 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **JuanDAC** - *Initial work* - [JuanDAC](https://github.com/JuanDAC)
+<details  style="user-select: none;">
+	<summary>
+		<strong style="user-select: none;cursor: pointer;">Juan David Avila</strong> - <a href="https://github.com/JuanDAC" target="_blank">JuanDAC</a>
+	</summary>
+	<img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=JuanDAC&layout=compact&theme=vue&langs_count=6" alt="adri-er github stats"/>
+</details>
+
+<br/>
 
 See also the list of [contributors](https://github.com/JuanDAC/power-styles/contributors) who participated in this project.
 

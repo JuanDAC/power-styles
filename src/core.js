@@ -1,59 +1,60 @@
-export const isValidValue = (value = "") =>
-  ["", "false", "null", "undefined"].every((compare) => value != compare);
+import polyfill from "css-typed-om"
+import { compouseHandlers } from "./handers"
+import { isInvalidValue } from "./validators"
 
-export const isInvalidValue = (value) => !isValidValue(value);
+polyfill(window);
 
-export const updateStyle = (node, property, value, unit) => {
-  if (isValidValue(value)) {
-    node.style.setProperty(property, `${value}${unit}`);
-  }
-};
+/**
+ * styleActionFactory:: (string,  identity) -> currentAction
+ */
+export const styleActionFactory = (property, handlers) => {
+  const handler = compouseHandlers(handlers);
 
-export const isUnit = (valueIn) => {
-  if (Array.isArray(valueIn)) {
-    return valueIn
-  }
-  return [valueIn, false]
-}
-
-export const getHandler = (handlers) => {
-  if (Array.isArray(handlers)) {
-    return (valueOut) =>
-      [valueOut, ...(handlers || []), isUnit].reduce((valueIn, handler) =>
-        handler(valueIn)
-      );
-  } else if (handlers instanceof Function) {
-    return (valueOut) => isUnit(handlers(valueOut));
-  }
-
-  return (valueOut) => isUnit(valueOut);
-};
-
-export const stylePropertyFactory = (property, handlers = false) => {
-  const handler = getHandler(handlers);
-  let unit = '';
-
-  const currentAction = (node, valueOut) => {
-    const [valueIn, newUnit]= handler(valueOut);
-    if (newUnit) {
-      unit = newUnit;
-    }
-
-    if (
-      valueIn === false ||
-      valueIn === null ||
-      valueIn === undefined ||
-      (typeof valueIn === "string" && isInvalidValue(valueIn))
-    ) {
-      return {
-        update: (valueOut) => currentAction(node, valueOut)
-      };
-    }
-
-    updateStyle(node, property, String(valueIn), unit);
-    return {
-      update: (valueOut) => currentAction(node, valueOut)
+  /**
+   * currenAction:: (node, string) -> {update: string -> currenAction}
+   */
+  const currentAction = (node, valueRaw) => {
+    const value = handler(valueRaw);
+    const someAction = {
+      update: (valueRaw) => currentAction(node, valueRaw)
     };
+
+    if (isInvalidValue(value)) {
+      return someAction;
+    }
+
+    // update style
+    node?.attributeStyleMap?.set(property, value);
+
+    return someAction;
+  };
+
+  return currentAction;
+};
+
+/** 
+ * styleActionFactory:: (string,  identity) -> currentAction
+ */
+export const customActionFactory = (property, handlers) => {
+  const handler = compouseHandlers(handlers);
+
+  /**
+   * currentAction:: (node, string) -> {update: string -> currenAction}
+   */
+  const currentAction = (node, valueRaw) => {
+    const value = handler(valueRaw);
+    const someAction = {
+      update: (valueRaw) => currentAction(node, valueRaw)
+    };
+
+    if (isInvalidValue(value)) {
+      return someAction;
+    }
+
+    // update style
+    node?.attributeStyleMap?.set(property, value);
+
+    return someAction;
   };
 
   return currentAction;
