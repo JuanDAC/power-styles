@@ -24,7 +24,7 @@ export const styleActionFactory = (property, handlers) => {
     }
 
     // update style
-    node?.attributeStyleMap?.set(property, value);
+    node?.attributeStyleMap?.set(property, value.toString());
 
     return someAction;
   };
@@ -54,7 +54,7 @@ export const customActionFactory = (property, handlers) => {
     }
 
     // update style
-    node?.attributeStyleMap?.set(property, value);
+    node?.attributeStyleMap?.set(property, value.toString());
 
     return someAction;
   };
