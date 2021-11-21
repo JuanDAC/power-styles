@@ -32,6 +32,8 @@ export const styleActionFactory = (property, handlers) => {
   return currentAction;
 };
 
+// TODO: read property transltate from node and animate cumtomproperties
+ 
 /** 
  * styleActionFactory:: (string,  identity) -> currentAction
  */

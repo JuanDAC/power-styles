@@ -1,4 +1,4 @@
-import { stylePropertyFactory } from "./core";
+import { styleActionFactory } from "./core";
 import { varAdding, toStringValues } from "./handers";
 import uppercamelcase from "uppercamelcase";
 import { paramCase } from "param-case";
@@ -13,7 +13,7 @@ extensionOnString();
 export const styleActions = Object.fromEntries(
   getStyleDeclaration().concat(getCustoms()).map((property) => [
     uppercamelcase(property.addPrefixCustom()),
-    stylePropertyFactory(
+    styleActionFactory(
       property.startsWith("--")
         ? property
         : paramCase(property),
