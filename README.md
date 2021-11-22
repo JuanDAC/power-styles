@@ -59,7 +59,7 @@ $ yarn add power-styles
   const { FontSize } = powerStyles;
 </script>
 
-<p use:FontSize="{fontSize}">
+<p use:FontSize={fontSize}>
   <slot />
 </p>
 ```
@@ -72,7 +72,7 @@ you can use like that
 </script>
 
 <main>
-  <Font fontSize="{CSS.em(4)}"> Ex fugiat laboris dolore id culpa. </Font>
+  <Font fontSize={CSS.em(4)}> Ex fugiat laboris dolore id culpa. </Font>
 
   <Font>
     Pariatur reprehenderit pariatur voluptate ea ipsum ullamco Lorem aliquip
@@ -123,9 +123,9 @@ you can use like that
 </script>
 
 <div class="flip">
-  <span class="on" on:click="{activeOn}">ON</span>
-  <span class="off" on:click="{activeOff}">OFF</span>
-  <div class="door" use:CustomRotateFlip="{customRotateFlip}" />
+  <span class="on" on:click={activeOn}>ON</span>
+  <span class="off" on:click={activeOff}>OFF</span>
+  <div class="door" use:CustomRotateFlip={customRotateFlip} />
 </div>
 
 <style>
@@ -220,7 +220,7 @@ or
 </script>
 
 <main>
-  <Flip onActive="{onActive}" />
+  <Flip onActive={onActive} />
 </main>
 ```
 
