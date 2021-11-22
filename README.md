@@ -5,7 +5,7 @@
 
 [![license](https://img.shields.io/npm/l/svelte.svg)](https://raw.githubusercontent.com/JuanDAC/power-styles/main/LICENSE) 
 
-> The power styles provider dynamic style properties for svelte
+> The power styles provides dynamic style properties for svelte
 
 ## Prerequisites
 
