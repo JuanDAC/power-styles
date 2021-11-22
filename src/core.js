@@ -26,9 +26,9 @@ export const styleActionFactory = (property, handlers) => {
     // update style
     node?.attributeStyleMap?.set(property, value.toString());
 
-    const {length} = node?.style?.getPropertyValue(property) || '';
+    const propertyValue = node?.style?.getPropertyValue(property) || '';
 
-    if (length === 0) {
+    if (propertyValue.trim() !== value.toString().trim()) {
       node?.style?.setProperty(property, value.toString());
     }
 
