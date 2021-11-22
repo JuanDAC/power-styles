@@ -10,7 +10,6 @@
 This library requires Svelte 3.x.x (version 3 or later).
 [Svelte](https://svelte.dev/) are really easy to install.
 
-
 ## Table of contents
 
 - [Project Name](#project-name)
@@ -49,27 +48,158 @@ $ yarn add power-styles
 
 ### property from prop
 
-| Property | Type | Default value | 
-| --- | --- | --- |
-| FontSize | String | "4em" |
+| Property | Type   | Default value |
+| -------- | ------ | ------------- |
+| FontSize | String | "4em"         |
 
 If you what style from props
 
-Example:
+`Font.svelte`:
 
 ```html
 <script>
-	import powerStyles from "power-styles";
-  const {FontSize} = powerStyles;
-	export fontSize = "4em";
+  import powerStyles from "power-styles";
+  export let fontSize = CSS.em(2);
+  const { FontSize } = powerStyles;
+</script>
+
+<p use:FontSize="{fontSize}">
+  <slot />
+</p>
+```
+
+you can use like that
+
+```html
+<script>
+  import Font from "./Font.svelte";
 </script>
 
 <main>
-	<p
-		use:FontSize={fontSize}
-	>
-  <slot/>
-  </p>
+  <font fontSize="{CSS.em(4)}"> Ex fugiat laboris dolore id culpa. </font>
+
+  <font>
+    Pariatur reprehenderit pariatur voluptate ea ipsum ullamco Lorem aliquip
+    magna duis qui proident.
+  </font>
+</main>
+```
+
+`Flip.svelte`:
+
+```html
+<script>
+  import powerStyles from "power-styles";
+  export let onActive = new Function();
+
+  const ACTIVE = 0,
+    MOVE = 90,
+    INACTIVE = 180;
+
+  const { CustomRotateFlip } = powerStyles;
+  let customRotateFlip = CSS.deg(90);
+
+  const launchOnActive = () => {
+    if (onActive instanceof Function) {
+      onActive(customRotateFlip.value === ACTIVE);
+    }
+  };
+
+  const activeOff = () => {
+    customRotateFlip =
+      customRotateFlip.value == INACTIVE
+        ? CSS.deg(90)
+        : CSS.deg(customRotateFlip.value + MOVE);
+    launchOnActive();
+  };
+
+  const activeOn = () => {
+    customRotateFlip =
+      customRotateFlip.value == ACTIVE
+        ? CSS.deg(MOVE)
+        : CSS.deg(customRotateFlip.value - MOVE);
+    launchOnActive();
+  };
+</script>
+
+<div class="flip">
+  <span class="on" on:click="{activeOn}">ON</span>
+  <span class="off" on:click="{activeOff}">OFF</span>
+  <div class="door" use:CustomRotateFlip="{customRotateFlip}" />
+</div>
+
+<style>
+  .flip {
+    margin: auto;
+    height: 100px;
+    width: 400px;
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(2, 1fr);
+    border-radius: 25px;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+  }
+  .flip :is(.on, .off, .door) {
+    color: aliceblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2em;
+    font-weight: 900;
+    word-spacing: 0pt;
+    display: grid;
+    place-content: center;
+    background-color: brown;
+  }
+  .flip .on {
+    background-color: green;
+  }
+  .door {
+    box-shadow: -1px 0px 0px 0px aliceblue;
+    position: absolute;
+    transition: 300ms all;
+    left: 50%;
+    height: 100%;
+    width: 50%;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    transform: rotateY(var(--rotate-flip));
+  }
+  .door:after {
+    position: absolute;
+    background-color: green;
+    content: "";
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+  }
+</style>
+```
+
+you can use like that
+
+```html
+<script>
+  import Flip from "./Flip.svelte";
+</script>
+
+<main>
+  <Flip />
+</main>
+```
+
+or
+
+```html
+<script>
+  import Flip from "./Flip.svelte";
+  const onActive = (state) => {
+    console.log(state ? "Is active" : "Is not active");
+  };
+</script>
+
+<main>
+  <Flip onActive="{onActive}" />
 </main>
 ```
 
