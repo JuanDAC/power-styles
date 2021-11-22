@@ -189,10 +189,10 @@ or style label in `public/index.html` file
 
 ```html
 <style id='power-styles'>
-  @property --property-name {
-    syntax: "<color>";
+  @property --rotate-flip {
+    syntax: "<angle>";
     inherits: false;
-    initial-value: #c0ffee;
+    initial-value: 90deg;
   }
 </style>
 ```
