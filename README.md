@@ -56,6 +56,8 @@ If you what style from props
 
 `Font.svelte`:
 
+![Font](https://github.com/JuanDAC/power-styles/blob/main/examples/simple_font.png?raw=true)
+
 ```html
 <script>
   import powerStyles from "power-styles";
@@ -86,6 +88,9 @@ you can use like that
 ```
 
 `Flip.svelte`:
+
+![Flip](https://github.com/JuanDAC/power-styles/blob/main/examples/advance.gif?raw=true) 
+
 
 ```html
 <script>
