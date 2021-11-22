@@ -46,19 +46,12 @@ $ yarn add power-styles
 
 ## Usage
 
-### property from prop
-
-| Property | Type   | Default value |
-| -------- | ------ | ------------- |
-| FontSize | String | "4em"         |
-
-If you what style from props
-
-`Font.svelte`:
+### `Font.svelte`:
 
 ![Font](https://github.com/JuanDAC/power-styles/blob/main/examples/simple_font.png?raw=true)
 
 ```html
+<!-- Font.svelte -->
 <script>
   import powerStyles from "power-styles";
   export let fontSize = CSS.em(2);
@@ -87,12 +80,13 @@ you can use like that
 </main>
 ```
 
-`Flip.svelte`:
+### `Flip.svelte:`
 
 ![Flip](https://github.com/JuanDAC/power-styles/blob/main/examples/advance.gif?raw=true) 
 
 
 ```html
+<!-- Flip.svelte -->
 <script>
   import powerStyles from "power-styles";
   export let onActive = new Function();
@@ -181,6 +175,27 @@ you can use like that
 </style>
 ```
 
+how to register custom property 
+
+Selector label in CSS file
+
+```css
+power-styles {
+  --rotate-flip: ;
+}
+```
+
+or style label in `public/index.html` file
+
+```html
+<style id='power-styles'>
+  @property --property-name {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #c0ffee;
+  }
+</style>
+```
 you can use like that
 
 ```html
