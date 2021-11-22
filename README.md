@@ -3,6 +3,10 @@
 
 # Power Styles
 
+![icon power styles](https://github.com/JuanDAC/power-styles/blob/main/examples/power-styles-logo.svg?raw=true)
+
+
+
 > The power styles provider dynamic style properties for svelte
 
 ## Prerequisites
