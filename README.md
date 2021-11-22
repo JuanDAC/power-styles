@@ -1,7 +1,7 @@
-<center>
+<p align="center">
 <img alt="Icon power styles" src="https://github.com/JuanDAC/power-styles/blob/main/examples/power-styles-logo.svg?raw=true"/> 
-<h1>Power Styles </h1>
-</center>
+</p>
+<h1 align="center">Power Styles</h1>
 
 [![license](https://img.shields.io/npm/l/svelte.svg)](https://raw.githubusercontent.com/JuanDAC/power-styles/main/LICENSE) 
 
@@ -20,7 +20,6 @@ This library requires Svelte 3.x.x (version 3 or later).
   - [Getting Started](#getting-started)
   - [Installation](#installation)
   - [Usage](#usage)
-    - [Use basic](#use-basic)
   - [Contributing](#contributing)
   - [Versioning](#versioning)
   - [Authors](#authors)
