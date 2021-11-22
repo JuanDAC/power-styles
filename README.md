@@ -71,12 +71,12 @@ you can use like that
 </script>
 
 <main>
-  <font fontSize="{CSS.em(4)}"> Ex fugiat laboris dolore id culpa. </font>
+  <Font fontSize="{CSS.em(4)}"> Ex fugiat laboris dolore id culpa. </Font>
 
-  <font>
+  <Font>
     Pariatur reprehenderit pariatur voluptate ea ipsum ullamco Lorem aliquip
     magna duis qui proident.
-  </font>
+  </Font>
 </main>
 ```
 
