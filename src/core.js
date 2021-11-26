@@ -2,7 +2,6 @@ import polyfill from "css-typed-om"
 import { compouseHandlers } from "./handers"
 import { isInvalidValue } from "./validators"
 
-polyfill(window);
 
 /**
  * styleActionFactory:: (string,  identity) -> currentAction
@@ -24,6 +23,9 @@ export const styleActionFactory = (property, handlers) => {
     }
 
     // update style
+    if (!node?.attributeStyleMap) {
+      polyfill(window);
+    }
     node?.attributeStyleMap?.set(property, value.toString());
 
     const propertyValue = node?.style?.getPropertyValue(property) || '';
