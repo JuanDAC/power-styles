@@ -1,8 +1,8 @@
 
 /**
  * isFirefox:: void -> bool
- */
 export const isFirefox = () => !!navigator.userAgent.match(/Firefox/);
+ */
 
 /**
  * isValidValue:: string | CSSUnitValue -> boolean
