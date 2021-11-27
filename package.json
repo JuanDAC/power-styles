@@ -1,6 +1,6 @@
 {
   "name": "power-styles",
-  "version": "3.0.4",
+  "version": "4.0.0",
   "description": "The power styles provider dynamic style properties for svelte",
   "main": "./dist/main.js",
   "require": "./dist/main.js",
@@ -34,6 +34,7 @@
   "devDependencies": {
     "@babel/cli": "^7.16.0",
     "@babel/core": "^7.16.0",
+    "@babel/plugin-transform-runtime": "^7.16.4",
     "@babel/preset-env": "^7.16.4",
     "@rollup/plugin-commonjs": "^11.0.0",
     "@rollup/plugin-node-resolve": "^7.0.0",

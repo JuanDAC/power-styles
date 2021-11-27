@@ -44,8 +44,45 @@ Or if you prefer using Yarn:
 ```sh
 $ yarn add power-styles
 ```
+## Usage for Svelte Kit 
 
-## Usage
+### `Font.svelte`:
+
+![Font](https://github.com/JuanDAC/power-styles/blob/main/examples/simple_font.png?raw=true)
+
+```html
+<!-- Font.svelte -->
+<script>
+  import powerStyles from "power-styles";
+	import { browser } from '$app/env';
+	const { FontSize } = browser ? powerStyles() : {};
+
+  export let fontSize = CSS.em(2);
+</script>
+
+<p use:FontSize={fontSize}>
+  <slot />
+</p>
+```
+
+you can use like that
+
+```html
+<script>
+  import Font from "./Font.svelte";
+</script>
+
+<main>
+  <Font fontSize={CSS.em(4)}> Ex fugiat laboris dolore id culpa. </Font>
+
+  <Font>
+    Pariatur reprehenderit pariatur voluptate ea ipsum ullamco Lorem aliquip
+    magna duis qui proident.
+  </Font>
+</main>
+```
+
+## Usage for Svelte
 
 ### `Font.svelte`:
 

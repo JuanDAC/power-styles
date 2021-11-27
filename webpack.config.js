@@ -13,12 +13,17 @@ const target = ['node'];
 const getStyleDeclaration = () => Object.keys(Object.getPrototypeOf((new JSDOM()).window.document.body.style));
 
 module.exports = {
+    experiments: {
+        outputModule: true,
+    },
     output: {
         filename: '[name].js',
         path: resolve(__dirname, 'dist'),
         chunkFormat: 'module',
-        libraryTarget: 'umd',
-        libraryExport: 'default' //<-- New line
+        //libraryTarget: 'umd',
+        libraryTarget: 'module',
+        // libraryExport: 'default' //<-- New line
+
     },
     resolve: {
         extensions,
@@ -35,7 +40,14 @@ module.exports = {
                         comments: false,
                         minified: true,
                         presets: ["@babel/env"],
-                        plugins: ["@babel/plugin-transform-modules-commonjs"],
+                        plugins: [
+                            [
+                                "@babel/plugin-transform-runtime",
+                                {
+                                    useESModules: true,
+                                }
+                            ]
+                        ],
                     }
                 }
             }
