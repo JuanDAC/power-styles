@@ -1,3 +1,3 @@
-import { styleActions } from "./cssStyleActions";
+import { init } from './action/infrastructure/initialize';
 
-export default styleActions;
+export default init;

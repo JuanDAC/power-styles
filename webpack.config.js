@@ -1,10 +1,11 @@
-const webpack = require('webpack');
+const { DefinePlugin } = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { resolve } = require('path');
 const { JSDOM } = require("jsdom");
+const WebpackModules = require('webpack-modules');
 
 const extensions = ['.js', '.mjs'];
-const target = ['node', 'es5'];
+const target = ['node'];
 
 /**
  * getStyleDeclaration:: void -> [string]
@@ -15,8 +16,10 @@ module.exports = {
     output: {
         filename: '[name].js',
         path: resolve(__dirname, 'dist'),
+        chunkFormat: 'module',
+        libraryTarget: 'umd',
+        libraryExport: 'default' //<-- New line
     },
-    stats: 'verbose',
     resolve: {
         extensions,
     },
@@ -31,16 +34,20 @@ module.exports = {
                     options: {
                         comments: false,
                         minified: true,
-                        presets: ["@babel/preset-env"],
+                        presets: ["@babel/env"],
+                        plugins: ["@babel/plugin-transform-modules-commonjs"],
                     }
                 }
             }
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(),
-        new webpack.DefinePlugin({
+        // new CleanWebpackPlugin(),
+        /*
+        new DefinePlugin({
             STYLE_DECLARATIONS: JSON.stringify(getStyleDeclaration()),
-        })
+        }),
+        new WebpackModules(),
+        */
     ]
 };

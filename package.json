@@ -2,9 +2,11 @@
   "name": "power-styles",
   "version": "3.0.4",
   "description": "The power styles provider dynamic style properties for svelte",
-  "main": "dist/main.js",
+  "main": "./dist/main.js",
+  "require": "./dist/main.js",
   "scripts": {
-    "build": "webpack --mode=production",
+    "build": "npm run build:module",
+    "build:module": "webpack --mode=production",
     "test": "jest"
   },
   "repository": {
@@ -41,6 +43,7 @@
     "babel-jest": "^27.3.1",
     "babel-loader": "^8.2.3",
     "babel-plugin-replace-import-extension": "^1.1.2",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
     "clean-webpack-plugin": "^4.0.0",
     "jest": "^27.3.1",
     "jsdom": "^18.1.1",

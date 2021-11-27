@@ -1,4 +1,4 @@
-import { isValidValue } from "../src/validators";
+import { isValidValue } from "../src/action/domine/validators";
 import { valuesToTest } from "./data"
 
 valuesToTest.forEach(([value, toExpect]) => {

@@ -55,8 +55,9 @@ $ yarn add power-styles
 <!-- Font.svelte -->
 <script>
   import powerStyles from "power-styles";
+  const { FontSize } = powerStyles();
+
   export let fontSize = CSS.em(2);
-  const { FontSize } = powerStyles;
 </script>
 
 <p use:FontSize={fontSize}>
@@ -96,7 +97,7 @@ you can use like that
     MOVE = 90,
     INACTIVE = 180;
 
-  const { CustomRotateFlip } = powerStyles;
+  const { CustomRotateFlip } = powerStyles();
   let customRotateFlip = CSS.deg(90);
 
   const launchOnActive = () => {
@@ -176,27 +177,6 @@ you can use like that
 </style>
 ```
 
-how to register custom property 
-
-Selector label in CSS file
-
-```css
-power-styles {
-  --rotate-flip: ;
-}
-```
-
-or style label in `public/index.html` file
-
-```html
-<style id='power-styles'>
-  @property --rotate-flip {
-    syntax: "<angle>";
-    inherits: false;
-    initial-value: 90deg;
-  }
-</style>
-```
 you can use like that
 
 ```html
