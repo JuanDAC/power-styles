@@ -2,6 +2,23 @@ import { compouseHandlers } from "../application/handers"
 import { isInvalidValue } from "./validators"
 
 /**
+ * setProperty:: (HTMLElement, string, string) -> void
+ */
+export const setProperty = (node, property, value) => {
+    if (node && node['attributeStyleMap'] && node['attributeStyleMap']['set'] instanceof Function) {
+        node.attributeStyleMap.set(property, value);
+    } else {
+        node?.style?.setProperty(property, value);
+    }
+
+    const propertyValue = node?.style?.getPropertyValue(property) || '';
+
+    if (propertyValue.trim() !== value.trim()) {
+        node?.style?.setProperty(property, value);
+    }
+}
+
+/**
  * styleActionFactory:: (string,  identity) -> currentAction
  */
 export const styleActionFactory = (property, handlers) => {
@@ -20,13 +37,7 @@ export const styleActionFactory = (property, handlers) => {
         }
 
         // update style
-        node?.attributeStyleMap?.set(property, value.toString());
-
-        const propertyValue = node?.style?.getPropertyValue(property) || '';
-
-        if (propertyValue.trim() !== value.toString().trim()) {
-            node?.style?.setProperty(property, value.toString());
-        }
+        setProperty(node, property, value.toString());
 
         return someAction;
     };

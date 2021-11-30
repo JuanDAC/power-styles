@@ -1,25 +1,11 @@
 import { stylesActions } from '../application/singeltonActions'
-import polyfill from "css-typed-om"
-
-const isBrowser = new Function(`
-    try {
-        return this===window;
-    }catch(e){
-        return false;
-    }
-`);
-
-const getWindow = new Function(`
-    return window;
-`);
+import { polyfill } from './polyfill';
 
 let previousPlataform;
 
 export const init = (plataform) => {
 
-    if (isBrowser()) {
-        polyfill(getWindow());
-    }
+    polyfill();
 
     if (plataform) {
         previousPlataform = plataform;

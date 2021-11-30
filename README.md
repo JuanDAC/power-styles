@@ -1,7 +1,7 @@
 <p align="center">
 <img alt="Icon power styles" src="https://github.com/JuanDAC/power-styles/blob/main/examples/power-styles-logo.svg?raw=true"/> 
 </p>
-<h1 align="center">Power Styles</h1>
+<h1 align="center" id="power-styles">Power Styles</h1>
 
 [![license](https://img.shields.io/npm/l/svelte.svg)](https://raw.githubusercontent.com/JuanDAC/power-styles/main/LICENSE) 
 
@@ -14,7 +14,7 @@ This library requires Svelte 3.x.x (version 3 or later).
 
 ## Table of contents
 
-- [Project Name](#project-name)
+- [Power Styles](#power-styles)
   - [Prerequisites](#prerequisites)
   - [Table of contents](#table-of-contents)
   - [Getting Started](#getting-started)
@@ -262,8 +262,8 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 	<summary>
 		<strong style="user-select: none;cursor: pointer;">Juan David Avila</strong> - <a href="https://github.com/JuanDAC" target="_blank">JuanDAC</a>
 	</summary>
-	<img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=JuanDAC&layout=compact&theme=vue&langs_count=6" alt="adri-er github stats"/>
-</details>
+	<img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=JuanDAC&layout=compact&theme=vue&langs_count=6" alt="JuanDAC github stats"/>
+</details
 
 <br/>
 
