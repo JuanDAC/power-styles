@@ -14,3 +14,5 @@ export const init = (plataform) => {
     return stylesActions;
 }
 
+export const serverPolyfill = polyfill;
+

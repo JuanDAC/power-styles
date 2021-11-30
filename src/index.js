@@ -1,3 +1,4 @@
-import { init } from './action/infrastructure/initialize';
+import { init, serverPolyfill } from './action/infrastructure/initialize';
 
+export const addCSS = serverPolyfill;
 export default init;

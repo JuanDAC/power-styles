@@ -19,10 +19,12 @@ const getGolbal = new Function(`
     }
 `);
 
+
 export const polyfill = () => {
     if (!isBrowser()) {
         if (!getGolbal().CSSRule) getGolbal().CSSRule = class CSSRule { };
         if (!getGolbal().Element) getGolbal().Element= class Element { };
     }
     browserPolyfill(getGolbal());
+    return {};
 }
