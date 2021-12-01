@@ -7,15 +7,8 @@ import { isInvalidValue } from "./validators"
 export const setProperty = (node, property, value) => {
     if (node && node['attributeStyleMap'] && node['attributeStyleMap']['set'] instanceof Function) {
         node.attributeStyleMap.set(property, value);
-    } else {
-        node?.style?.setProperty(property, value);
     }
-
-    const propertyValue = node?.style?.getPropertyValue(property) || '';
-
-    if (propertyValue.trim() !== value.trim()) {
-        node?.style?.setProperty(property, value);
-    }
+    node?.style?.setProperty(property, value);
 }
 
 /**

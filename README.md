@@ -55,7 +55,7 @@ $ yarn add power-styles
 <script>
   import powerStyles from "power-styles";
 	import { browser } from '$app/env';
-	const { FontSize } = browser ? powerStyles() : {};
+	const { FontSize } = powerStyles();
 
   export let fontSize = CSS.em(2);
 </script>
