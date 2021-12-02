@@ -5,17 +5,22 @@ import { isInvalidValue } from "./validators"
  * setProperty:: (HTMLElement, string, string) -> void
  */
 export const setProperty = (node, property, value) => {
-    if (node && node['attributeStyleMap'] && node['attributeStyleMap']['set'] instanceof Function) {
+
+    node?.style?.setProperty(property, value);
+
+    if (node['attributeStyleMap'] && node['attributeStyleMap']['set'] instanceof Function) {
         try {
             node.attributeStyleMap.set(property, value);
         }
-        catch (e) {
-            console.warn(e);
-            console.warn(`The property is `, property);
-            console.warn(`The value is `, value);
+        catch ({ message }) {
+            console.warn(message.split(':').pop(), `
+            The property is `, property, `
+            The value is `, value);
+        }
+        finally {
+            node?.style?.setProperty(property, value);
         }
     }
-    node?.style?.setProperty(property, value);
 }
 
 /**
